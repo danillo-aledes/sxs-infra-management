@@ -4,13 +4,13 @@ import { StatusBar } from 'react-native';
 
 import { Container, Btn, ContentBtn, Image, Title } from './styles';
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
   return (
     <Container>
       <StatusBar barStyle="light-content" backgroundColor="#003477" />
 
       <ContentBtn>
-        <Btn activeOpacity={0.6}>
+        <Btn activeOpacity={0.6} onPress={() => navigation.push('Empresa')}>
           <Image source={require('../../assets/company.png')} />
           <Title>Empresa</Title>
         </Btn>
