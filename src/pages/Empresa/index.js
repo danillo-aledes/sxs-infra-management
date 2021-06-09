@@ -4,45 +4,54 @@ import Lista from '../../components/Lista'
 const Empresa = () => {
   const data = [
     {
-      id: 1,
-      nome: "Empresa 1"
+      _id: 1,
+      sxs_company_name: "Empresa 1",
+      sxs_company_country: "Estados Un_idos"
     },
     {
-      id: 2,
-      nome: "Empresa 2"
+      _id: 2,
+      sxs_company_name: "Empresa 2",
+      sxs_company_country: "Itália"
     },
     {
-      id: 3,
-      nome: "Empresa 3"
+      _id: 3,
+      sxs_company_name: "Empresa 3",
+      sxs_company_country: "Alemanha"
     },
     {
-      id: 4,
-      nome: "Empresa 4"
+      _id: 4,
+      sxs_company_name: "Empresa 4",
+      sxs_company_country: "Japão"
     },
     {
-      id: 5,
-      nome: "Empresa 5"
+      _id: 5,
+      sxs_company_name: "Empresa 5",
+      sxs_company_country: "Jamaica"
     },
     {
-      id: 6,
-      nome: "Empresa 6"
+      _id: 6,
+      sxs_company_name: "Empresa 6",
+      sxs_company_country: "Austrália"
     },
     {
-      id: 7,
-      nome: "Empresa 7"
+      _id: 7,
+      sxs_company_name: "Empresa 7",
+      sxs_company_country: "Brasil"
     },
     {
-      id: 8,
-      nome: "Empresa 8"
+      _id: 8,
+      sxs_company_name: "Empresa 8",
+      sxs_company_country: "Grécia"
     },
     {
-      id: 9,
-      nome: "Empresa 9"
+      _id: 9,
+      sxs_company_name: "Empresa 9",
+      sxs_company_country: "Israel"
     }
   ]
 
   return (
-    <Lista data={data} />
+    <Lista data={data} categoria="empresa" />
   );
 }
 

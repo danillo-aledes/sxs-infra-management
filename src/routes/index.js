@@ -6,6 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 // Paginas
 import Menu from '../pages/Menu';
 import Empresa from '../pages/Empresa';
+import CadastrarEmpresa from '../pages/CadastrarEmpresa';
 // import Infra from '../pages/Infra';
 // import Impressoras from '../pages/Impressoras';
 // import Usuarios from '../pages/Usuarios';
@@ -30,12 +31,12 @@ function Routes() {
       <Stack.Screen
         name="Empresa"
         component={Empresa}
-        options={{
+        options={({ navigation }) => ({
           headerTitle: "Lista Empresa",
           headerTintColor: "#fff",
           headerStyle: { backgroundColor: '#1e4b94' },
           headerRight: () => (
-            <TouchableOpacity activeOpacity={0.6}>
+            <TouchableOpacity activeOpacity={0.6} onPress={() => navigation.push('CadastrarEmpresa')}>
               <FontAwesome
                 name={'plus-square'}
                 size={30}
@@ -44,6 +45,16 @@ function Routes() {
               />
             </TouchableOpacity>
           ),
+        })}
+      />
+
+      <Stack.Screen
+        name="CadastrarEmpresa"
+        component={CadastrarEmpresa}
+        options={{
+          headerTitle: "Cadastro de Empresa",
+          headerTintColor: "#fff",
+          headerStyle: { backgroundColor: '#1e4b94' }
         }}
       />
     </Stack.Navigator>
