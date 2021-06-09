@@ -12,30 +12,30 @@ MENU
 Company (Empresa)
 - Listar - OK
 - Cadastrar - OK
-- Atualizar - Não terminado
-- Deletar - Não Terminado
+- Atualizar - OK
+- Deletar - OK
 
 Infrastructure (Infraestrutura)
 - Listar - OK
 - Cadastrar - OK
 - Atualizar - Não terminado
-- Deletar - Não Terminado
+- Deletar - OK
 
 Printer (Impressora)
 - Listar - OK
 - Cadastrar - OK
 - Atualizar - Não terminado
-- Deletar - Não Terminado
+- Deletar - OK
 
 Ramal (Telefonia)
 - Listar - OK
 - Cadastrar - OK
 - Atualizar - Não terminado
-- Deletar - Não Terminado
+- Deletar - OK
 
 User (Usuário)
 - Listar - OK
 - Cadastrar - OK
 - Atualizar - Não terminado
-- Deletar - Não Terminado
+- Deletar - OK
 

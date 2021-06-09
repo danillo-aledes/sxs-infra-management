@@ -12,16 +12,36 @@ import api from '../../services/api'
 const CadastrarImpressora = () => {
   const formRef = useRef(null);
 
-  function handleSubmit(data) {
-    console.log(data);
+  function cadastrarImpressora(data) {
+    let nome = data.sxs_printer_name;
+    let modelo = data.sxs_printer_model;
+    let toner = data.sxs_printer_toner;
+    let ip = data.sxs_printer_ip;
+    let local = data.sxs_printer_local;
 
-    api.post('printers', data);
-    alert("Impressora Cadastrada com sucesso!");
+    if (nome !== undefined && nome !== '' &&
+      modelo !== undefined && modelo !== '' &&
+      toner !== undefined && toner !== '' &&
+      ip !== undefined && ip !== '' &&
+      local !== undefined && local !== '') {
+
+      api.post('company', data);
+
+      Alert.alert(
+        "Sucesso",
+        "Empresa Cadastrada com sucesso!",
+        [
+          { text: "OK", onPress: () => navigation.pop() }
+        ]
+      );
+    } else {
+      alert("Por favor, preencha os campos vazios");
+    }
   }
 
   return (
     <Container>
-      <Form ref={formRef} onSubmit={handleSubmit}>
+      <Form ref={formRef} onSubmit={cadastrarImpressora}>
         <Input
           name="sxs_printer_name"
           placeholder={"Nome da Impressora"}

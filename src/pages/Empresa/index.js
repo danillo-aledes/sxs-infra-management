@@ -3,7 +3,7 @@ import Lista from '../../components/Lista'
 
 import api from '../../services/api';
 
-const Empresa = () => {
+const Empresa = ({ navigation }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Empresa = () => {
   }
 
   return (
-    <Lista data={data} categoria="empresa" />
+    <Lista data={data} categoria="empresa" navigation={navigation} refresh={() => ListaEmpresa()} />
   );
 }
 
