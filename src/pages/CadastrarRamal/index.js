@@ -7,11 +7,16 @@ import Button from '../../components/Button';
 
 import { Container } from './styles';
 
+import api from '../../services/api'
+
 const CadastrarRamal = () => {
   const formRef = useRef(null);
 
   function handleSubmit(data) {
+    api.post('ramais', data);
+
     console.log(data);
+    alert("Ramal Cadastrado com sucesso!")
   }
 
   return (

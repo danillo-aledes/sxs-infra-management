@@ -7,11 +7,16 @@ import Button from '../../components/Button';
 
 import { Container } from './styles';
 
+import api from '../../services/api'
+
 const CadastrarImpressora = () => {
   const formRef = useRef(null);
 
   function handleSubmit(data) {
     console.log(data);
+
+    api.post('printers', data);
+    alert("Impressora Cadastrada com sucesso!");
   }
 
   return (

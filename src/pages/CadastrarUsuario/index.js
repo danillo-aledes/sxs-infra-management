@@ -7,11 +7,16 @@ import Button from '../../components/Button';
 
 import { Container } from './styles';
 
+import api from '../../services/api'
+
 const CadastrarUsuario = () => {
   const formRef = useRef(null);
 
   function handleSubmit(data) {
+    api.post('users', data);
+
     console.log(data);
+    alert("Usuário Cadastrado com sucesso!")
   }
 
   return (

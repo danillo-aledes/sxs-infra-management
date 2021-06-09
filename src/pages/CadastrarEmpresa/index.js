@@ -7,11 +7,16 @@ import Button from '../../components/Button';
 
 import { Container } from './styles';
 
+import api from '../../services/api'
+
 const CadastrarEmpresa = () => {
   const formRef = useRef(null);
 
   function handleSubmit(data) {
     console.log(data);
+    
+    api.post('company', data);
+    alert("Empresa Cadastrada com sucesso!")
   }
 
   return (

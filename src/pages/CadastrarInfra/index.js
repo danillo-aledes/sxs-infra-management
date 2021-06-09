@@ -7,11 +7,16 @@ import Button from '../../components/Button';
 
 import { Container } from './styles';
 
+import api from '../../services/api'
+
 const CadastrarInfra = () => {
   const formRef = useRef(null);
 
   function handleSubmit(data) {
+    api.post('infra', data);
+
     console.log(data);
+    alert("Máquina Cadastrada com sucesso!")
   }
 
   return (
