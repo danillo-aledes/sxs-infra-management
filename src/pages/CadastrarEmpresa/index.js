@@ -3,8 +3,9 @@ import { Form } from '@unform/mobile';
 
 // Componentes
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
-import { Container, ContentButton, ButtonText } from './styles';
+import { Container } from './styles';
 
 const CadastrarEmpresa = () => {
   const formRef = useRef(null);
@@ -32,9 +33,9 @@ const CadastrarEmpresa = () => {
           autoCorrect={false}
         />
 
-        <ContentButton activeOpacity={0.6} onPress={() => formRef.current.submitForm()}>
-          <ButtonText>Cadastrar</ButtonText>
-        </ContentButton>
+        <Button activeOpacity={0.6} onPress={() => formRef.current.submitForm()}>
+          Cadastrar
+        </Button>
       </Form>
     </Container>
   );
