@@ -60,6 +60,8 @@ function Input({ name, label, onChangeText, icon, ...rest }) {
         ref={inputRef}
         onChangeText={handleChangeText}
         defaultValue={defaultValue}
+        autoCapitalize="none"
+        autoCorrect={false}
         {...rest}
       />
     </Content>

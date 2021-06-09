@@ -15,26 +15,26 @@ const Menu = ({ navigation }) => {
           <Title>Empresa</Title>
         </Btn>
 
-        <Btn activeOpacity={0.6}>
+        <Btn activeOpacity={0.6} onPress={() => navigation.push('Infraestrutura')}>
           <Image source={require('../../assets/infra.png')} />
           <Title>Infraestrutura</Title>
         </Btn>
       </ContentBtn>
 
       <ContentBtn>
-        <Btn activeOpacity={0.6}>
+        <Btn activeOpacity={0.6} onPress={() => navigation.push('Impressora')}>
           <Image source={require('../../assets/printer.png')} />
           <Title>Impressoras</Title>
         </Btn>
 
-        <Btn activeOpacity={0.6}>
+        <Btn activeOpacity={0.6} onPress={() => navigation.push('Usuario')}>
           <Image source={require('../../assets/user.png')} />
           <Title>Usuários</Title>
         </Btn>
       </ContentBtn>
 
       <ContentBtn>
-        <Btn activeOpacity={0.6}>
+        <Btn activeOpacity={0.6} onPress={() => navigation.push('Ramal')}>
           <Image source={require('../../assets/ramal.png')} />
           <Title>Ramal</Title>
         </Btn>

@@ -117,13 +117,13 @@ const Lista = ({ data, categoria }) => {
       case "empresa":
         return <SubtitleFlatList>País: {item.sxs_company_country}</SubtitleFlatList>
       case "infra":
-        return <SubtitleFlatList>País: {item.sxs_infra_hostname}</SubtitleFlatList>
+        return <SubtitleFlatList>Domínio: {item.sxs_infra_hostname}</SubtitleFlatList>
       case "impressora":
-        return <SubtitleFlatList>País: {item.sxs_printer_ip}</SubtitleFlatList>
+        return <SubtitleFlatList>IP: {item.sxs_printer_ip}</SubtitleFlatList>
       case "usuario":
-        return <SubtitleFlatList>País: {item.sxs_user_local}</SubtitleFlatList>
+        return <SubtitleFlatList>Local: {item.sxs_user_local}</SubtitleFlatList>
       case "ramal":
-        return <SubtitleFlatList>País: {item.sxs_ramal_ramal}</SubtitleFlatList>
+        return <SubtitleFlatList>Ramal: {item.sxs_ramal_ramal}</SubtitleFlatList>
       default:
         break;
     }
