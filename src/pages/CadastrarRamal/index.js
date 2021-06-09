@@ -18,9 +18,33 @@ const CadastrarRamal = () => {
     <Container>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Input
-          name="ramal"
+          name="sxs_ramal_user"
+          placeholder={"Nome"}
+          icon={"user"}
+        />
+
+        <Input
+          name="sxs_ramal_local"
+          placeholder={"Local"}
+          icon={"address-card"}
+        />
+
+        <Input
+          name="sxs_ramal_ramal"
           placeholder={"Ramal"}
           icon={"phone"}
+        />
+
+        <Input
+          name="sxs_ramal_ip"
+          placeholder={"IP"}
+          icon={"map-pin"}
+        />
+
+        <Input
+          name="sxs_ramal_mac"
+          placeholder={"MAC Address"}
+          icon={"gg-circle"}
         />
 
         <Button activeOpacity={0.6} onPress={() => formRef.current.submitForm()}>

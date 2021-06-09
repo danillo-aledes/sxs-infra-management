@@ -18,9 +18,21 @@ const CadastrarUsuario = () => {
     <Container>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Input
-          name="user"
+          name="sxs_user_name"
           placeholder={"Usuario"}
           icon={"user"}
+        />
+
+        <Input
+          name="sxs_user_role"
+          placeholder={"Ocupação / Profissão"}
+          icon={"group"}
+        />
+
+        <Input
+          name="sxs_user_local"
+          placeholder={"Local"}
+          icon={"home"}
         />
 
         <Button activeOpacity={0.6} onPress={() => formRef.current.submitForm()}>

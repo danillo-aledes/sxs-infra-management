@@ -18,13 +18,13 @@ const CadastrarEmpresa = () => {
     <Container>
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Input
-          name="pais"
+          name="sxs_company_country"
           placeholder={"País"}
           icon={"flag-o"}
         />
 
         <Input
-          name="nomeEmpresa"
+          name="sxs_company_name"
           placeholder={"Nome da empresa"}
           icon={"building-o"}
         />

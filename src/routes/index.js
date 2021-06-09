@@ -192,7 +192,7 @@ function Routes() {
           headerTintColor: "#fff",
           headerStyle: { backgroundColor: '#1e4b94' }
         }}
-      />
+      /> 
     </Stack.Navigator>
   );
 }
