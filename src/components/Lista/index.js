@@ -167,7 +167,7 @@ const Lista = ({ data, categoria }) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         data={data}
-        keyExtractor={(item) => item._id.toString()}
+        keyExtractor={(item) => item._id}
         renderItem={renderList}
       />
     </Container>

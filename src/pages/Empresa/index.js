@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Lista from '../../components/Lista'
 
+import axios from 'axios'
+import { API } from '../../constants/config'
+
 const Empresa = () => {
-  const data = [
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${API}/company`).then(response => {
+      console.log(response.data);
+
+      const listaEmpresas = []
+      
+      for (let i = 0; i < response.data.length; i++) {
+        
+        listaEmpresas.push([
+          {
+            _id: response.data[i]._id,
+            sxs_company_name: response.data[i].sxs_company_name,
+            sxs_company_country: response.data[i].sxs_company_country
+          }
+        ])
+      }
+
+      setData(listaEmpresas)
+    })
+  }, []);
+
+  /* const data = [
     {
       _id: 1,
       sxs_company_name: "Empresa 1",
@@ -48,7 +74,7 @@ const Empresa = () => {
       sxs_company_name: "Empresa 9",
       sxs_company_country: "Israel"
     }
-  ]
+  ] */
 
   return (
     <Lista data={data} categoria="empresa" />
