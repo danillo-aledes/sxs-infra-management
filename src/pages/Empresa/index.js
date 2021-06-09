@@ -1,10 +1,5 @@
 import React from 'react';
-import { FlatList, Animated } from 'react-native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-
-import {
-  Container, Title, SwipeableButton, SwipeableActionText, SwipeableLeftAction, SwipeableRightAction
-} from './styles';
+import Lista from '../../components/Lista'
 
 const Empresa = () => {
   const data = [
@@ -24,77 +19,30 @@ const Empresa = () => {
       id: 4,
       nome: "Empresa 4"
     },
+    {
+      id: 5,
+      nome: "Empresa 5"
+    },
+    {
+      id: 6,
+      nome: "Empresa 6"
+    },
+    {
+      id: 7,
+      nome: "Empresa 7"
+    },
+    {
+      id: 8,
+      nome: "Empresa 8"
+    },
+    {
+      id: 9,
+      nome: "Empresa 9"
+    }
   ]
 
-  function LeftActions({ progress, dragX }) {
-    const animationText = dragX.interpolate({
-      inputRange: [0, 100],
-      outputRange: [0, 1],
-      extrapolate: 'clamp'
-    });
-
-    return (
-      <SwipeableLeftAction>
-        <SwipeableButton>
-          <SwipeableActionText
-            as={Animated.Text}
-            style={{ transform: [{ scale: animationText }] }}
-          >
-            Editar
-        </SwipeableActionText>
-        </SwipeableButton>
-      </SwipeableLeftAction>
-    );
-  }
-
-  function RightActions({ progress, dragX }) {
-    const animationText = dragX.interpolate({
-      inputRange: [-100, 0],
-      outputRange: [1, 0],
-      extrapolate: 'clamp'
-    });
-
-    return (
-      <SwipeableRightAction>
-        <SwipeableButton>
-          <SwipeableActionText
-            as={Animated.Text}
-            style={{ transform: [{ scale: animationText }] }}
-          >
-            Excluir
-          </SwipeableActionText>
-        </SwipeableButton>
-      </SwipeableRightAction>
-    );
-  }
-
   return (
-    <Container>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={data}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Swipeable
-            renderLeftActions={(progress, dragX) =>
-              <LeftActions
-                progress={progress}
-                dragX={dragX}
-              />
-            }
-            renderRightActions={(progress, dragX) =>
-              <RightActions
-                progress={progress}
-                dragX={dragX}
-              />
-            }
-          >
-            <Title>{item.nome}</Title>
-          </Swipeable>
-        )}
-        style={{ margin: 10, backgroundColor: "#fff" }}
-      />
-    </Container>
+    <Lista data={data} />
   );
 }
 
