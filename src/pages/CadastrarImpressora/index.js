@@ -25,11 +25,11 @@ const CadastrarImpressora = () => {
       ip !== undefined && ip !== '' &&
       local !== undefined && local !== '') {
 
-      api.post('company', data);
+      api.post('printers', data);
 
       Alert.alert(
         "Sucesso",
-        "Empresa Cadastrada com sucesso!",
+        "Impressora cadastrada com sucesso!",
         [
           { text: "OK", onPress: () => navigation.pop() }
         ]
