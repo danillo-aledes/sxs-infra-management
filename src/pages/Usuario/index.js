@@ -1,54 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Lista from '../../components/Lista'
 
+import api from '../../services/api';
+
 const Usuario = () => {
-  const data = [
-    {
-      _id: 1,
-      sxs_company_name: "Empresa 1",
-      sxs_company_country: "Estados Un_idos"
-    },
-    {
-      _id: 2,
-      sxs_company_name: "Empresa 2",
-      sxs_company_country: "Itália"
-    },
-    {
-      _id: 3,
-      sxs_company_name: "Empresa 3",
-      sxs_company_country: "Alemanha"
-    },
-    {
-      _id: 4,
-      sxs_company_name: "Empresa 4",
-      sxs_company_country: "Japão"
-    },
-    {
-      _id: 5,
-      sxs_company_name: "Empresa 5",
-      sxs_company_country: "Jamaica"
-    },
-    {
-      _id: 6,
-      sxs_company_name: "Empresa 6",
-      sxs_company_country: "Austrália"
-    },
-    {
-      _id: 7,
-      sxs_company_name: "Empresa 7",
-      sxs_company_country: "Brasil"
-    },
-    {
-      _id: 8,
-      sxs_company_name: "Empresa 8",
-      sxs_company_country: "Grécia"
-    },
-    {
-      _id: 9,
-      sxs_company_name: "Empresa 9",
-      sxs_company_country: "Israel"
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    ListaUsuario();
+  }, []);
+
+  async function ListaUsuario() {
+    const response = await api.get('users');
+
+    const usuarios = [];
+    for (let i = 0; i < response.data.length; i++) {
+      usuarios.push({
+        _id: response.data[i]._id,
+        sxs_user_name: response.data[i].sxs_user_name,
+        sxs_user_role: response.data[i].sxs_user_role,
+        sxs_user_local: response.data[i].sxs_user_local
+      });
     }
-  ]
+
+    setData(usuarios);
+  }
 
   return (
     <Lista data={data} categoria="usuario" />

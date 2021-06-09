@@ -1,33 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Lista from '../../components/Lista'
 
+import api from '../../services/api'
+
 const Impressora = () => {
-  const data = [
-    {
-      _id: 1,
-      sxs_printer_name: "Impressora 1",
-      sxs_printer_model: "HP",
-      sxs_printer_toner: "Toner 1",
-      sxs_printer_ip: 123.456,
-      sxs_printer_local: "Financeiro"
-    },
-    {
-      _id: 2,
-      sxs_printer_name: "Impressora 2",
-      sxs_printer_model: "Brother",
-      sxs_printer_toner: "Toner 2",
-      sxs_printer_ip: 789.1011,
-      sxs_printer_local: "Compras"
-    },
-    {
-      _id: 3,
-      sxs_printer_name: "Impressora 3",
-      sxs_printer_model: "Lexmark",
-      sxs_printer_toner: "Toner 3",
-      sxs_printer_ip: 1213.1415,
-      sxs_printer_local: "Vendas"
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    ListaImpressoras();
+  }, []);
+
+  async function ListaImpressoras() {
+    const response = await api.get('printers');
+
+    const impressoras = [];
+    for (let i = 0; i < response.data.length; i++) {
+      impressoras.push({
+        _id: response.data[i]._id,
+        sxs_printer_name: response.data[i].sxs_printer_name,
+        sxs_printer_model: response.data[i].sxs_printer_model,
+        sxs_printer_toner: response.data[i].sxs_printer_toner,
+        sxs_printer_ip: response.data[i].sxs_printer_ip,
+        sxs_printer_local: response.data[i].sxs_printer_local
+      });
     }
-  ]
+
+    setData(impressoras);
+  }
 
   return (
     <Lista data={data} categoria="impressora" />

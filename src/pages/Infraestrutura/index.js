@@ -1,54 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Lista from '../../components/Lista'
 
+import api from '../../services/api'
+
 const Infraestrutura = () => {
-  const data = [
-    {
-      _id: 1,
-      sxs_company_name: "Empresa 1",
-      sxs_company_country: "Estados Un_idos"
-    },
-    {
-      _id: 2,
-      sxs_company_name: "Empresa 2",
-      sxs_company_country: "Itália"
-    },
-    {
-      _id: 3,
-      sxs_company_name: "Empresa 3",
-      sxs_company_country: "Alemanha"
-    },
-    {
-      _id: 4,
-      sxs_company_name: "Empresa 4",
-      sxs_company_country: "Japão"
-    },
-    {
-      _id: 5,
-      sxs_company_name: "Empresa 5",
-      sxs_company_country: "Jamaica"
-    },
-    {
-      _id: 6,
-      sxs_company_name: "Empresa 6",
-      sxs_company_country: "Austrália"
-    },
-    {
-      _id: 7,
-      sxs_company_name: "Empresa 7",
-      sxs_company_country: "Brasil"
-    },
-    {
-      _id: 8,
-      sxs_company_name: "Empresa 8",
-      sxs_company_country: "Grécia"
-    },
-    {
-      _id: 9,
-      sxs_company_name: "Empresa 9",
-      sxs_company_country: "Israel"
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    ListaInfraestrutura();
+  }, []);
+
+  async function ListaInfraestrutura() {
+    const response = await api.get('infra');
+
+    const maquinas = [];
+    for (let i = 0; i < response.data.length; i++) {
+      maquinas.push({
+        _id: response.data[i]._id,
+        sxs_infra_user: response.data[i].sxs_infra_user.sxs_user_name,
+        sxs_infra_hostname: response.data[i].sxs_infra_hostname,
+        sxs_infra_model: response.data[i].sxs_infra_model,
+        sxs_infra_local: response.data[i].sxs_infra_local,
+        sxs_infra_cisco_amp: response.data[i].sxs_infra_cisco_amp,
+        sxs_infra_bomgar: response.data[i].sxs_infra_bomgar,
+        sxs_infra_sccm: response.data[i].sxs_infra_sccm,
+        sxs_infra_service_tag: response.data[i].sxs_infra_service_tag,
+        sxs_infra_os: response.data[i].sxs_infra_os
+      });
     }
-  ]
+
+    setData(maquinas);
+  }
 
   return (
     <Lista data={data} categoria="infra" />
